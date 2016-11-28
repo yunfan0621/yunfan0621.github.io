@@ -1,0 +1,10 @@
+User-Agent: *
+Disallow: /458/
+Disallow: /A1/
+Disallow: /assets/
+Disallow: /EEG/
+Disallow: /images/
+Disallow: /Patch/
+Disallow: /resume/
+Disallow: /video/
+Disallow: /sort/

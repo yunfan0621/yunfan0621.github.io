@@ -1,108 +1,84 @@
-<!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
 <html>
-	<head>
-		<title>Yunfan Liu Personal Site</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body id="top">
 
-		<!-- Header -->
-			<header id="header">
-				<a href="#" class="image avatar"><img src="images/fulls/Portrait_Cropped.jpg" alt="" /></a>
-				<h1>Hi! I am <strong>Yunfan Liu</strong>,<br /> a second year master student major in <br /><strong>Electrical Engineering: Systems</strong> at <br /><a href="http://www.umich.edu"><strong>University of Michigan - Ann Arbor</strong></a></h1>
-			</header>
+<head>
+	<title>Learning to Detect Humans-Objects Interactions</title>
+</head>
 
-		<!-- Main -->
-			<div id="main">
+<body>
+	<!-- Start of Page Table Layout -->
+	<table border=0 width=1000px align=center>
+		<tr>
+			<td>
 
-				<!-- Title of the research -->
-					<section id="one">
-						<header class="major">
-							<h2>Learning to Detect Humans-Objects Interactions</h2>
-						</header>
-						<p>
-							Vision & Learning Lab, University of Michigan - Ann Arbor<br />
-							Supervisor: Professor Jia Deng | Co-author: Y.W.-Chao, Xieyang Liu
-						</p>
-					</section>
+				<!-- Page Title -->
+				<center>
+					<h1>
+						<font face=helvetica style="font-size:90%">Learning to Detect Humans-Objects Interactions</font>
+					</h1>
+				</center>
+				<br>
+
+				<center>
+					<font face=helvetica style=font-size:18px>
+						<b>Supervisor:</b> Jia Deng | <b>Co-author:</b> Yu-Wei Chao, Xieyang Liu
+					</font>
+				</center><br><br>
+
+				<center>
+					<img src="HOI/HOI_Examples_horizontal.png" height="150">
+				</center><br>
 
 				<!-- Goal -->
-					<section id="two">
-						<h2>Goal</h2>
-						<p>
-							The goal of the project was to detect and label human-object interactions (HOI) in static images, instead of only focusing on either single object detection or action recognition. 
-						</p>
-							
-						<img src="HOI/HOI_Examples_horizontal.png" width = "700" alt="" />
-						<br><br>
-						
-						<p>
-							As show in the above figure, people are encircled by blue boxes and objects by green boxes. Each red line links indicate the interaction of desired category between people and objects.
-						</p>
-					</section>
+				<h2><font face=helvetica style=font-size:24px>Goal</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The goal of the project was to detect and label human-object interactions (HOI) in static images, instead of only focusing on either single object detection or action recognition. As show in the above figure, people are encircled by blue boxes and objects by green boxes. Each red line links indicate the interaction of desired category between people and objects.
+					</font>
+				</p><br>
 
 				<!-- Method -->
-					<section id="three">
-						<h2>Method</h2>
-						<p>
-							The goal is approached in two phases: human/object bounding boxes detection and HOI classification. In the first phase, we trained Fast-rcnn detectors with images containing 80 object categories (including human) and achieved the goal of human/object bounding box detection. 
-						</p>
+				<h2><font face=helvetica style=font-size:24px>Method</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The goal is approached in two phases: human/object bounding boxes detection and HOI classification. In the first phase, we trained Fast-rcnn detectors with images containing 80 object categories (including human) and achieved the goal of human/object bounding box detection. For the second phase, we proposed a multi-streamed deep neural network to extract features from human pose as well as local object texture, and learn spatial relation from interaction pattern.
+					</font>
+				</p>	
 
-						<img src="HOI/HOI_Three_Stream.png" width = "700" alt="" />
-						<br><br>
-						
-						<p>
-							For the second phase, we proposed a multi-streamed deep neural network to extract features from human pose as well as local object texture, and learn spatial relation from interaction pattern, as show in the figure above.
-						</p>
+				<br>
+				<center>
+					<img src="HOI/HOI_Three_Stream.png" width = "700" alt="" />
+				</center>
+				<br>
 
-						<p>
-							The most difficult challenge of the project lies in the extensive variation of relationship of human and objects in natural scenes. To tackle the variation, We investigated on the distribution of ground truth bounding boxes of human and objects and concluded that spatial relations of human and objects could be clustered in several main patterns. We then developed an input channel that included description of interaction patterns with the lowest granularity by ignoring the pixel intensities. Incorporating this interaction pattern channel to human and object streams boosted the HOI detection performance by more than 26.50% of mAP on HICO-DET.
-						</p>
-					</section>
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The most difficult challenge of the project lies in the extensive variation of relationship of human and objects in natural scenes. To tackle the variation, We investigated on the distribution of ground truth bounding boxes of human and objects and concluded that spatial relations of human and objects could be clustered in several main patterns. We then developed an input channel that included description of interaction patterns with the lowest granularity by ignoring the pixel intensities. Incorporating this interaction pattern channel to human and object streams boosted the HOI detection performance by more than 26.50% of mAP on HICO-DET.
+					</font>
+				</p><br>		
 
 				<!-- Results -->
-					<section id="four">
-						<h2>Experiment Results</h2>
-						<p>
-							Some of the sample results are shown as follows (numbers are the confident scores generated by the network). This work has been submitted to CVPR 2017, and the source code as well as more detailed experiment result will be released upon acceptance. Stay Tuned! 
-						</p>
+				<h2><font face=helvetica style=font-size:24px>Results</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						Some of the sample results are shown as follows (numbers are the confident scores generated by the network). This work has been submitted to CVPR 2017, and the source code as well as more detailed experiment result will be released upon acceptance. Stay Tuned!
+					</font>
+				</p>
 
-						<img src="HOI/HOI_Results.png" width = "700" alt="" />
-						<br><br>
-  					</seciton>
+				<br>
+				<center>
+					<img src="HOI/HOI_Results.png" width = "700" alt="" />
+				</center>
+				<br>
 
-  					<section>
-						<ul class="actions">
-							<li><a href="index.html" class="button">Return To Home</a></li>
-						</ul>
-  					</seciton>
-			</div>
+				<hr>
+				<font face=helvetica style=font-size:15px>Last updated on 2016/12/25</font>
+			</td>
+		</tr>
 
-		<!-- Footer -->
-			<footer id="footer">
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/yunfan-liu-2b88a1114?trk=prof-samename-name" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="https://github.com/yunfan0621" class="icon fa-github"><span class="label">Github</span></a></li>
-					<li><a href="mailto: yunfan@umich.edu" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-				</ul>
-				<ul class="copyright">
-					<li>&copy; Yunfan Liu</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>

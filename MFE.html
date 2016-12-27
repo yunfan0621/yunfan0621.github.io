@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+<head>
+	<title>Learning to Detect Humans-Objects Interactions</title>
+</head>
+
+<body>
+	<!-- Start of Page Table Layout -->
+	<table border=0 width=1000px align=center>
+		<tr>
+			<td>
+
+				<!-- Page Title -->
+				<center>
+					<h1>
+						<font face=helvetica style="font-size:90%">Vision-based Micro-Expression Analysis</font>
+					</h1>
+				</center>
+				<br>
+
+				<center>
+					<font face=helvetica style=font-size:18px>
+						<b>Institute of Information Cognition and Intelligent System, Tsinghua University</b><br />
+						<br>
+						<b>Supervisor:</b> <a href="http://jschenthu.weebly.com/" target="_blank">Jiansheng Chen</a>
+					</font>
+				</center><br><br>
+
+				<center>
+					<img src="MFE/Robust_PCA.png" height="150">
+				</center><br>
+
+				<!-- Goal -->
+				<h2><font face=helvetica style=font-size:24px>Goal</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The goal of the project was to investigate on the problem of micro-expression analysis from visual perspctive. As oppose to normal-expression, micro-expression is a kind of subconscious expression that could reveal actual and suppressed emotion, so it possesses high research value in criminal investigation and medical consultation. The short duration and subtle facial movement makes it hard for human beings to recognize micro-expression. Therefore, high frame rate data acquisition and computer vision techniques are employed in the analysis.
+					</font>
+				</p><br>
+
+				<!-- Data Acquisition -->
+				<h2><font face=helvetica style=font-size:24px>Data Acquisition</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The main problem in existing databases is the fixed head posture, which makes the algorithm impractical for natural scene processing. To tackle with this problem, we improved the experiment settings by including macro head motion (both in-plane and out-plane movement) and recording the videos using high frame rate video camera. We designed and conducted experiments using ideas borrowed from psychological literature to collect raw video data with high frame rate to capture subtle facial movement and established a dataset with annotations. Sample frames are shown below.
+					</font>
+				</p>
+
+				<br>
+				<center>
+					<img src="MFE/Sample_frames.png" width = "700" alt="" />
+				</center>
+				<br>
+
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						The video recorder we used in our experiment is SONY NEX-FS700CK digial motion picture camera. The raw data is collected under 480fps, 720p configuration, which is sufficient for us to capture the micro-expression. 40 videos are recorded in total and the average length is 2.5~3.2s.  
+					</font>
+				</p><br>
+
+				<!-- Method -->
+				<h2><font face=helvetica style=font-size:24px>Method</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						Close observation reveals that the overall movement (head movement and facial expression) can be decomposed in three separate parts: <b>in-plane motion</b>, <b>out-plane motion</b> and <b>micro-expression</b>. Following this idea, we could get rid of head movement and extract the micro-expression.
+							 <ol>
+							  <!-- Step 1 -->
+							  <li>
+							  	<p align=justify>
+							  		Using Amazon Mechanic Turk (MTurk) crowd-source platform to annotate robotic surgery videos (5 parts of the robotic instrument) for vision-analysis.<br \>
+
+							  		We obtained large scale annotations of surgical videos of robotic prostatectomy from surgeons in the Michigan Urological Surgery Improvement Collaborative (MUSIC) to serve as training and testing data. We developed a novel user interface for data acquisition and enforced quality control mechanism to ensure high annotation accuracy. So far, 146,309 video frames were annotated by 925 crowdworkers and we are still working on collecting more data.
+							  	</p>
+
+							  	<br>
+							  	<center>
+							  		<img src="VAST/VAST_UI.png" width = "700" alt="" />
+							  	</center>
+							  	<br>
+
+							  	<p align=justify>
+							  		Our quality control strategy is to sample 3 out of every 20 frames and have multiple workers annotate them. The sample frames are named 'GT frames' and other ordinary frames are named 'Regular frames'. We take the average of annotations on each GT frame and consider them as GT annotations for each GT frame. After that, we use the GT annotations to measure the quality of the annotations of the 20 frames where the GT frames are sampled. Experiments are conducted to select optimal parameters minimizing average annotation error.
+							  	</p>
+
+							  	<br>
+							  	<center>
+							  		<img src="VAST/VAST_Pipeline.png" width = "700" alt="" />
+							  	</center>	
+							  	<br>
+							  </li>
+
+							  <!-- Step 2 -->
+  							  <li>
+							  	<p align=justify>
+							  		Based on the crowd-source annotation data, we proposed a system to label the technical skill presented by the surgery video as 'novice' or 'professional'. Using these videos we trained a linear support vector machine (SVM), and sampled consecutive frames to study VAST metrics for instruments including velocity, trajectory, smoothness of movements, and relationship to contralateral instrument. We applied the SVM to learn and classify each video into high or low skill. To evaluate performance we used 11 videos as training data and tested on the remaining 1 video, repeating the experiment 12 times and averaged the accuracy.
+							  	</p>
+
+							  	<br>
+							  	<center>
+							  		<img src="VAST/VAST_SVM.png" width = "700" alt="" />
+							  	</center>
+							  	<br>
+
+							  	<p align=justify>
+							  		We achieved 100% classification accuracy making use of annotations from both left and right robotic arms. Investigation on Global evaluative assessment of robotic skills (GEARS) shows that 'Bi-manual' and 'Efficiency' are two metrics that give highest variation among all the videos, thus the input feature vectors of SVM are constructed mainly based on these two metrics.
+							  	</p>
+							  </li>
+
+							  <!-- Step 3 -->
+							  <li>
+							  	<p align=justify>
+							  		Our Ultimate goal is to build a autonomous surgical skill evaluation system. Therefore, the last step is to propose an algorithm to automatically annotate video frames. We make use of stacked Hourglass model to recognize robotic arm pose in every frame and in this way we could obtain annotation of desired joints of robotic arms. We are still working on fine-tuning the network, stay tunned!
+							  	</p>
+							  </li>
+							</ol> 
+					</font>
+				</p>		
+
+				<!-- Results -->
+				<h2><font face=helvetica style=font-size:24px>Results</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						Some of the sample results are shown as follows (numbers are the confident scores generated by the network). This work has been submitted to CVPR 2017, and the source code as well as more detailed experiment result will be released upon acceptance. Stay Tuned!
+					</font>
+				</p>
+
+				<br>
+				<center>
+					<img src="HOI/HOI_Results.png" width = "700" alt="" />
+				</center>
+				<br>
+
+				<ul class="actions">
+					<li><a href="index.html" class="button">Return To Home</a></li>
+				</ul>
+
+				<hr>
+				<font face=helvetica style=font-size:15px>Last updated on 2016/12/25</font>
+			</td>
+		</tr>
+
+</body>
+</html>

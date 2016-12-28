@@ -28,10 +28,6 @@
 					</font>
 				</center><br><br>
 
-				<center>
-					<img src="MFE/Robust_PCA.png" height="150">
-				</center><br>
-
 				<!-- Goal -->
 				<h2><font face=helvetica style=font-size:24px>Goal</font></h2>
 				<hr style="margin-top:-10px; margin-bottom:-5px">
@@ -58,9 +54,15 @@
 
 				<p align=justify>
 					<font face=helvetica style=font-size:18px>
-						The video recorder we used in our experiment is SONY NEX-FS700CK digial motion picture camera. The raw data is collected under 480fps, 720p configuration, which is sufficient for us to capture the micro-expression. 40 videos are recorded in total and the average length is 2.5~3.2s.  
+						The video recorder we used in our experiment is SONY NEX-FS700CK digial motion picture camera. The raw data is collected under 480fps, 720p configuration, which is sufficient for us to capture the micro-expression. 40 videos are recorded in total and the average length is 2.5~3.2s. A typical scene of data acquisition is shown as follows (this is not a very strict way to acquire data due to the limited resources we had in the project).
 					</font>
 				</p><br>
+
+				<br>
+				<center>
+					<img src="MFE/Experiment_Setting.png" width = "700" alt="" />
+				</center>
+				<br>
 
 				<!-- Method -->
 				<h2><font face=helvetica style=font-size:24px>Method</font></h2>
@@ -103,12 +105,31 @@
 					</font>
 				</p>		
 
+				<!-- Result -->
+				<h2><font face=helvetica style=font-size:24px>Sample Result</font></h2>
+				<hr style="margin-top:-10px; margin-bottom:-5px">
+				<p align=justify>
+					<font face=helvetica style=font-size:18px>
+						A micro-expression detection result is shown as follows. As can be seen from the sampled image sequence (upper figure), the expression is very hard to observe, not to mention the head movement will introduce great noise thus degrade SNR (the general head movement maybe not obvious since the images are sampled in a short time period). The lower figure shows the micro-expression detection result. THe result successfully recognizes the motion near the mouth corners, but it also take the movement of eyes and illumination change near the noise as micro-expression by mistake. This result demonstrates the main difficulty embedded in micro-expression analysis - the small amplitude of expression. On the other hand, it also illustrates the ability of our algorithm to detection subtle motion (as oppose to expression-related motion) in nature complicated scenes.
+					</font>	
+				</p>
+
+				<br>
+				<center>
+					<img src="MFE/Sample_Micro_Expression.png" width = "700" alt="" /><br />
+					<img src="MFE/Micro_Expression_Result.png" width = "150" alt="" />
+				</center>
+				<br>
+
+
 				<!-- Further Application -->
 				<h2><font face=helvetica style=font-size:24px>Further Application and Problems</font></h2>
 				<hr style="margin-top:-10px; margin-bottom:-5px">
 				<p align=justify>
 					<font face=helvetica style=font-size:18px>
-						After separating the micro-expression, we could do enhancing easily since we already know all the information of the movement. We could also do classfication to recognize micro-expressions. Experiment result shows that the low amplitude of expression is the key issue of the micro-expression analysis. The intensity change cause by the micro-expression is comparable with that caused by illumination change or even noise, thus we have an exremely poor SNR in this system. In order to improve performance of the algorithm, a beeter detection algorithm should be proposed in the future.
+						Since we could extract the motion of micro-expression, magnification and classification are two handy further applications. Besides, this project demonstrates that the Robust PCA is a very efficient algorithm in vdeo processing as the low property is universally embedded in image sequences (I believe this is more inspiring than micro-expression analysis itself). <br /><br>
+
+						Experiment result shows that the low amplitude of expression is the key issue of the micro-expression analysis. The intensity change cause by the micro-expression is comparable with that caused by illumination change or even noise, thus we have an exremely poor SNR in this system. In order to improve performance of the algorithm, a beeter detection algorithm should be proposed in the future.
 					</font>
 				</p>
 

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Yunfan Liu Personal Site</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body id="top">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="#" class="image avatar"><img src="images/fulls/Portrait_Cropped.jpg" alt="" /></a>
+				<h1>Hi! I am <strong>Yunfan Liu</strong>,<br /> a second year master student major in <br /><strong>Electrical Engineering: Systems</strong> at <br /><a href="http://www.umich.edu"><strong>University of Michigan - Ann Arbor</strong></a></h1>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- Title of the research -->
+					<section id="one">
+						<header class="major">
+							<h2>Video Analysis of Skill and Technique (VAST)</h2>
+						</header>
+						<p>
+							Vision & Learning Lab, University of Michigan - Ann Arbor<br />
+							Supervisor: Professor Jia Deng, Ghani R. Khurshid | Collaborator: Hei Law
+						</p>
+					</section>
+
+				<!-- Goal -->
+					<section id="two">
+						<h2>Goal</h2>
+						<p>
+							A surgeon's technical skill may be a pivotal determinant of patient outcomes. Because robotic surgery can be recorded, computer vision analysis may have unique advantages for skill assessment that is objective, efficient and scalable. The goal of this project is to evaluate technical skill of surgeon based on robotic prostatectomy videos. Typical scenes of robotic prostatectomy can be found in the figure above.
+						</p>
+							
+						<img src="VAST/VAST_sample_operation.png" width = "700" alt="" />
+					</section>
+
+				<!-- Goal -->
+					<section id="two">
+						<h2>Method</h2>
+						<p>
+							The goal is approached in three steps. 
+							 <ol>
+							  <!-- Step 1 -->
+							  <li>
+							  	<p>
+							  		Using Amazon Mechanic Turk (MTurk) crowd-source platform to annotate robotic surgery videos (5 parts of the robotic instrument) for vision-analysis.<br \>
+
+							  		We obtained large scale annotations of surgical videos of robotic prostatectomy from surgeons in the Michigan Urological Surgery Improvement Collaborative (MUSIC) to serve as training and testing data. We developed a novel user interface for data acquisition and enforced quality control mechanism to ensure high annotation accuracy. So far, 146,309 video frames were annotated by 925 crowdworkers and we are still working on collecting more data.
+							  	</p>
+
+							  	<img src="VAST/VAST_UI.png" width = "700" alt="" />
+
+							  	<p>
+							  		Our quality control strategy is to sample 3 out of every 20 frames and have multiple workers annotate them. The sample frames are named 'GT frames' and other ordinary frames are named 'Regular frames'. We take the average of annotations on each GT frame and consider them as GT annotations for each GT frame. After that, we use the GT annotations to measure the quality of the annotations of the 20 frames where the GT frames are sampled. Experiments are conducted to select optimal parameters minimizing average annotation error.
+							  	</p>
+
+							  	<img src="VAST/VAST_Pipeline.png" width = "700" alt="" />
+							  </li>
+
+							  <!-- Step 2 -->
+  							  <li>
+							  	<p>
+							  		Based on the crowd-source annotation data, we proposed a system to label the technical skill presented by the surgery video as 'novice' or 'professional'. Using these videos we trained a linear support vector machine (SVM), and sampled consecutive frames to study VAST metrics for instruments including velocity, trajectory, smoothness of movements, and relationship to contralateral instrument. We applied the SVM to learn and classify each video into high or low skill. To evaluate performance we used 11 videos as training data and tested on the remaining 1 video, repeating the experiment 12 times and averaged the accuracy.
+							  	</p>
+
+							  	<img src="VAST/VAST_SVM.png" width = "700" alt="" />
+
+							  	<p>
+							  		We achieved 100% classification accuracy making use of annotations from both left and right robotic arms. Investigation on Global evaluative assessment of robotic skills (GEARS) shows that 'Bi-manual' and 'Efficiency' are two metrics that give highest variation among all the videos, thus the input feature vectors of SVM are constructed mainly based on these two metrics.
+							  	</p>
+							  </li>
+
+							  <!-- Step 3 -->
+							  <li>
+							  	<p>
+							  		Our Ultimate goal is to build a autonomous surgical skill evaluation system. Therefore, the last step is to propose an algorithm to automatically annotate video frames. We make use of stacked Hourglass model to recognize robotic arm pose in every frame and in this way we could obtain annotation of desired joints of robotic arms. We are still working on fine-tuning the network, stay tunned!
+							  	</p>
+							  </li>
+							</ol> 
+						</p>
+						
+					</section>
+
+
+
+  					<section>
+						<ul class="actions">
+							<li><a href="index.html" class="button">Return To Home</a></li>
+						</ul>
+  					</seciton>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.linkedin.com/in/yunfan-liu-2b88a1114?trk=prof-samename-name" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="https://github.com/yunfan0621" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="mailto: yunfan@umich.edu" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Yunfan Liu</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

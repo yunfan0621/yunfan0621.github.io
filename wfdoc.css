@@ -105,6 +105,16 @@ li {
 	white-space: nowrap;
 }
 
+.opening-label {
+	color: #cc0000;
+}
+
+.publication-note {
+	margin: -0.2em 0 0.8em;
+	color: #333333;
+	font-size: 95%;
+}
+
 .publication-list {
 	margin-left: 0;
 	list-style: none;

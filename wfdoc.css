@@ -65,10 +65,10 @@ li {
 
 .header {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 270px;
+	grid-template-columns: minmax(0, 1fr) 248px;
 	gap: 36px;
 	align-items: start;
-	margin-bottom: 2em;
+	margin-bottom: 1.2em;
 }
 
 .profile h1 {
@@ -88,10 +88,11 @@ li {
 }
 
 .portrait {
-	width: 270px;
+	width: 220px;
 	max-width: 100%;
 	height: auto;
 	margin-top: 0.8em;
+	justify-self: start;
 	border: 0;
 }
 

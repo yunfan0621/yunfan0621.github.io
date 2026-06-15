@@ -65,7 +65,7 @@ li {
 
 .header {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) 248px;
+	grid-template-columns: minmax(0, 1fr) 280px;
 	gap: 36px;
 	align-items: start;
 	margin-bottom: 1.2em;
@@ -106,15 +106,27 @@ li {
 }
 
 .publication-list {
-	margin-left: 1.6em;
+	margin-left: 0;
+	list-style: none;
 }
 
 .publication-list li {
-	margin-top: 1em;
+	display: grid;
+	grid-template-columns: 165px minmax(0, 1fr);
+	gap: 18px;
+	align-items: start;
+	margin-top: 1.2em;
 }
 
 .publication-list p {
 	margin-bottom: 0.25em;
+}
+
+.publication-list img {
+	width: 165px;
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 .publication-title {
@@ -140,5 +152,14 @@ li {
 	.portrait {
 		width: 190px;
 		margin: 0;
+	}
+
+	.publication-list li {
+		grid-template-columns: 1fr;
+		gap: 10px;
+	}
+
+	.publication-list img {
+		width: 220px;
 	}
 }
